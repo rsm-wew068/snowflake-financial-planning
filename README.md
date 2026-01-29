@@ -26,7 +26,7 @@ Successfully migrated `usp_ProcessBudgetConsolidation` stored procedure from SQL
 - 5 tables migrated (FiscalPeriod, GLAccount, CostCenter, BudgetHeader, BudgetLineItem)
 
 ### 2. ✅ Verification Documentation
-**Location**: `snowflake-migration/testing/verification_approach.md`
+**Location**: `VERIFICATION.md`
 
 **Method**: Side-by-side comparison with SQL Server
 
@@ -98,8 +98,9 @@ ORDER BY g.AccountNumber;
 
 ```
 snowflake-takehome/
-├── README.md                                    # This file
+├── README.md                                    # Overview
 ├── AI_USAGE_EXPLANATION.md                      # Deliverable #3
+├── VERIFICATION.md                              # Deliverable #2
 ├── instruction.md                               # Original assignment
 │
 ├── snowflake-migration/                         # CONVERTED CODE
@@ -108,7 +109,6 @@ snowflake-takehome/
 │   ├── schema/
 │   │   └── 01_tables.sql
 │   └── testing/
-│       ├── verification_approach.md             # Deliverable #2
 │       └── test_data.sql
 │
 ├── src/                                         # Original SQL Server code
