@@ -1,6 +1,6 @@
 # Snowflake Take-Home Assignment - SQL Server to Snowflake Migration
 
-**Candidate**: Rachel Wang  
+**Candidate**: Wei-Hsien Wang  
 **Date**: January 28, 2026  
 **Assignment**: SnowConvert AI Software Engineering Take-Home  
 
@@ -353,7 +353,7 @@ Both issues were identified and resolved during testing phase.
 
 ## Contact Information
 
-**Candidate**: Rachel Wang  
+**Candidate**: Wei-Hsien Wang  
 **Snowflake Account**: KBVUCBE-OZB10247  
 **Username**: WEW068  
 
