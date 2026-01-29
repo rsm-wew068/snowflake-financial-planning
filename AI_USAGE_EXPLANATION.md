@@ -1,11 +1,5 @@
 # AI Usage in SQL Server to Snowflake Migration
 
-**Candidate**: Wei-Hsien Wang  
-**Date**: January 28, 2026  
-**AI Tool**: Kiro (Claude-based AI IDE assistant)
-
----
-
 ## AI Implementation
 
 ### 1. Initial Analysis 

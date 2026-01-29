@@ -1,11 +1,5 @@
 # SQL Server to Snowflake Migration Plan
 
-## Assignment Overview
-- **Deadline**: 24 hours
-- **Minimum**: Convert `usp_ProcessBudgetConsolidation` (required)
-- **Optional**: Convert up to 5 additional stored procedures
-- **Deliverables**: Working code, verification approach, AI usage explanation
-
 ## Migration Strategy
 
 ### Phase 1: Schema Migration (Foundation)
