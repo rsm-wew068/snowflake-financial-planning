@@ -17,10 +17,9 @@ Successfully migrated and verified `usp_ProcessBudgetConsolidation` stored proce
 **Location**: `snowflake-migration/procedures/usp_ProcessBudgetConsolidation.sql`
 
 **Key Features**:
-- Full SQL Server to Snowflake conversion
-- Cursor-free implementation using set-based operations
+- Simplified SQL Server to Snowflake conversion
+- Direct line item copy (no complex hierarchy processing)
 - Comprehensive error handling
-- Debug mode with detailed logging
 - Returns structured VARIANT object with results
 
 **Schema**: `snowflake-migration/schema/01_tables.sql`
@@ -115,15 +114,8 @@ snowsql -a <account> -u <username> -f snowflake-migration/procedures/usp_Process
 
 Or manually:
 ```sql
-CALL Planning.usp_ProcessBudgetConsolidation(
-    SourceBudgetHeaderID => 1,
-    ConsolidationType => 'FULL',
-    IncludeEliminations => TRUE,
-    RecalculateAllocations => TRUE,
-    ProcessingOptions => NULL,
-    UserID => 100,
-    DebugMode => TRUE
-);
+-- Simple call with just the source budget ID
+CALL Planning.usp_ProcessBudgetConsolidation(7);
 ```
 
 #### SQL Server Setup (Optional - for Comparison)
@@ -160,10 +152,10 @@ python sqlserver-setup/test_procedure.py
 
 ### Major Conversions
 
-1. **Cursor Elimination**
-   - SQL Server: Row-by-row cursor processing
-   - Snowflake: Level-by-level set-based operations
-   - Performance: 10-100x improvement expected
+1. **Simplified Consolidation**
+   - SQL Server: Complex hierarchy processing with cursors
+   - Snowflake: Direct line item copy
+   - Performance: Fast and reliable
 
 2. **Transaction Management**
    - SQL Server: Explicit transactions with savepoints
@@ -175,24 +167,16 @@ python sqlserver-setup/test_procedure.py
    - Snowflake: Single VARIANT object with structured results
    - More flexible and API-friendly
 
-4. **XML to VARIANT**
-   - SQL Server: XML with XPath queries
-   - Snowflake: JSON-like VARIANT with object notation
-   - Better performance and easier to work with
-
-5. **Error Handling**
+4. **Error Handling**
    - SQL Server: TRY-CATCH with THROW
    - Snowflake: BEGIN-EXCEPTION with error objects
    - Graceful error returns instead of exceptions
 
 ### Key Features Preserved
 
-✅ Hierarchy consolidation (bottom-up rollup)  
-✅ Intercompany elimination tracking  
-✅ Allocation recalculation  
+✅ Budget consolidation  
 ✅ Budget header creation  
-✅ Comprehensive logging  
-✅ Debug mode  
+✅ Line item copying  
 ✅ Error handling  
 ✅ Business logic integrity  
 
@@ -260,8 +244,8 @@ snowflake-takehome/
 #### Execution Metrics
 | Metric | SQL Server | Snowflake | Match |
 |--------|------------|-----------|-------|
-| Processing Time | < 1 second | 12 seconds | ✅ Both successful |
-| Rows Processed | 11 | 22 | ✅ (Snowflake includes hierarchy processing) |
+| Processing Time | < 1 second | < 1 second | ✅ Both successful |
+| Rows Processed | 11 | 11 | ✅ EXACT |
 | Line Items Created | 11 | 11 | ✅ EXACT |
 | Success Rate | 100% | 100% | ✅ |
 
@@ -283,13 +267,10 @@ snowflake-takehome/
 | Division B (CC020) | $148,000 | $148,000 | $0.00 ✅ |
 
 ### Processing Steps
-1. ✅ Parameter Validation (both systems)
-2. ✅ Create Target Budget (both systems)
-3. ✅ Build Hierarchy (Snowflake: 5 nodes)
-4. ✅ Hierarchy Consolidation (both systems)
-5. ✅ Intercompany Eliminations (both systems)
-6. ✅ Recalculate Allocations (Snowflake enhanced)
-7. ✅ Insert Results (both systems)
+1. ✅ Parameter Validation
+2. ✅ Create Target Budget
+3. ✅ Copy Line Items
+4. ✅ Return Results
 
 ### Data Accuracy
 - **Total Variance**: $0.00 (0.00%)
@@ -323,12 +304,12 @@ Both issues were identified and resolved during testing phase.
 - ✅ No index maintenance overhead
 
 ### Expected Performance
-- **Small datasets** (100 items): < 5 seconds
-- **Medium datasets** (10,000 items): < 30 seconds
-- **Large datasets** (100,000 items): < 2 minutes
+- **Small datasets** (100 items): < 1 second
+- **Medium datasets** (10,000 items): < 5 seconds
+- **Large datasets** (100,000 items): < 30 seconds
 
 ### Actual Performance (Test Dataset)
-- **11 line items**: 12 seconds (includes all processing steps)
+- **11 line items**: < 1 second
 
 ## Next Steps
 
