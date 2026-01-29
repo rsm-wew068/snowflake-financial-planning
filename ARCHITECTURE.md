@@ -1,4 +1,4 @@
-# SQL Server Financial Planning Objects - Snowflake Migration Challenge Set
+# SQL Server Financial Planning Objects
 
 This directory contains a set of SQL Server database objects designed to test and challenge Snowflake migration tools. These objects are modeled after common enterprise financial planning and budgeting systems.
 
