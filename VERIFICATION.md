@@ -23,7 +23,7 @@
 **Snowflake Results**:
 - ✅ Procedure Execution: SUCCESS
 - ✅ Processing Time: 12 seconds
-- ✅ Rows Processed: 22
+- ✅ Rows Processed: 11
 - ✅ Line Items Created: 11
 - ✅ All Processing Steps: COMPLETED
 
@@ -126,6 +126,77 @@ This document describes the comprehensive verification strategy used to ensure t
 | CC020 | Division B | 2 | 148,000 | 40k+90k+28k-10k | ✅ CORRECT |
 
 **Hierarchy Total**: $473,000 (matches sum of all line items)
+
+---
+
+## Calculation Formulas
+
+### By Account (Consolidated Totals)
+
+**Cash (1000):**
+```
+= Dept A1 Cash + Dept A2 Cash + Division B Cash
+= 50,000 + 30,000 + 40,000
+= $120,000
+```
+
+**Revenue (4000):**
+```
+= Dept A1 Revenue + Dept A2 Revenue + Division B Revenue
+= 100,000 + 80,000 + 90,000
+= $270,000
+```
+
+**Salaries (5000):**
+```
+= Dept A1 Salaries + Dept A2 Salaries + Division B Salaries
+= 30,000 + 25,000 + 28,000
+= $83,000
+```
+
+**IC Receivable (9000):**
+```
+= Dept A1 IC Receivable
+= $10,000
+```
+
+**IC Payable (9100):**
+```
+= Division B IC Payable
+= -$10,000
+```
+
+### By Cost Center (Hierarchy Rollup)
+
+**Dept A1 (CC011):**
+```
+= Cash + Revenue + Salaries + IC Receivable
+= 50,000 + 100,000 + 30,000 + 10,000
+= $190,000
+```
+
+**Dept A2 (CC012):**
+```
+= Cash + Revenue + Salaries
+= 30,000 + 80,000 + 25,000
+= $135,000
+```
+
+**Division B (CC020):**
+```
+= Cash + Revenue + Salaries + IC Payable
+= 40,000 + 90,000 + 28,000 + (-10,000)
+= $148,000
+```
+
+### Grand Total
+```
+= All line items
+= 120,000 + 270,000 + 83,000 + 10,000 + (-10,000)
+= $473,000
+```
+
+---
 
 ### Issues Encountered and Resolved
 
