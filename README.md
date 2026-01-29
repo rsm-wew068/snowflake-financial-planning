@@ -3,7 +3,6 @@
 **Candidate**: Wei-Hsien Wang  
 **Date**: January 28, 2026  
 **Position**: SnowConvert AI Software Engineering  
-**GitHub**: https://github.com/rsm-wew068/snowflake-takehome
 
 ---
 
@@ -164,7 +163,6 @@ python sqlserver-setup/test_procedure.py
 
 **Candidate**: Wei-Hsien Wang  
 **Snowflake Account**: KBVUCBE-OZB10247  
-**GitHub**: https://github.com/rsm-wew068/snowflake-takehome
 
 ---
 
