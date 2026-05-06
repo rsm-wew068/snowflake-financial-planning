@@ -1,8 +1,4 @@
-# Snowflake Take-Home Assignment
-
-**Candidate**: Wei-Hsien Wang  
-**Date**: January 28, 2026  
-**Position**: SnowConvert AI Software Engineering  
+# Snowflake Financial Planning Migration
 
 ---
 
@@ -32,17 +28,6 @@
 | Salaries | $83,000 | $83,000 | $0.00 ✅ |
 | IC Receivable | $10,000 | $10,000 | $0.00 ✅ |
 | IC Payable | -$10,000 | -$10,000 | $0.00 ✅ |
-
-### 3. ✅ AI Usage Explanation
-**Location**: `AI_USAGE_EXPLANATION.md`
-
-Used AI (Claude/Kiro) extensively for:
-- SQL syntax conversion
-- Test data generation
-- Debugging and issue resolution
-- Documentation
-
-**Productivity Impact**: ~2.3x faster (6.5 hours with AI vs 15 hours estimated without)
 
 ---
 
