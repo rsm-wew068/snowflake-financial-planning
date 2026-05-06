@@ -1,7 +1,5 @@
 # Snowflake Financial Planning Migration
 
-## Three Required Deliverables
-
 ### 1. ✅ Working Code
 **Location**: `snowflake-migration/procedures/usp_ProcessBudgetConsolidation.sql`
 
