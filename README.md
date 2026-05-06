@@ -74,13 +74,12 @@ ORDER BY g.AccountNumber;
 ```
 snowflake-takehome/
 ├── README.md                                    # Overview
-├── AI_USAGE_EXPLANATION.md                      # Deliverable #3
-├── VERIFICATION.md                              # Deliverable #2
+├── VERIFICATION.md                              
 ├── instruction.md                               # Original assignment
 │
 ├── snowflake-migration/                         # CONVERTED CODE
 │   ├── procedures/
-│   │   └── usp_ProcessBudgetConsolidation.sql  # Deliverable #1
+│   │   └── usp_ProcessBudgetConsolidation.sql 
 │   ├── schema/
 │   │   └── 01_tables.sql
 │   └── testing/
@@ -138,13 +137,3 @@ python sqlserver-setup/test_procedure.py
 
 **Candidate**: Wei-Hsien Wang  
 **Snowflake Account**: KBVUCBE-OZB10247  
-
----
-
-## Summary
-
-✅ All three deliverables completed  
-✅ 100% accuracy verified  
-✅ Production-ready code  
-✅ Comprehensive documentation  
-✅ Ready for review
